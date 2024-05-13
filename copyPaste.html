@@ -1,0 +1,48 @@
+<script src="copyPaste.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div id="copyPasteTab" class="tab-content active">
+    <div class="graphMetadata">
+        <div class="title">
+            <label for="title">Title:</label> 
+            <input type="text" id="title">
+        </div>
+        <div class="xRange">
+            <label>X Range:</label>
+            (<input type="number" id="xmin" placeholder="Xmin">
+            <span>,</span>
+            <input type="number" id="xmax" placeholder="Xmax">)
+        </div>
+        <div class="yRange">
+            <label for="adjustYAxis">Set Y range from 0 to 1:</label>
+            <input type="checkbox" id="adjustYAxis">
+        </div>
+        <div><button onclick="plotDistributions()">Plot Curve(s)</button></div>
+    </div>
+    <div class="inputFieldsContainer">
+        <table id="copyPasteInputFields">
+            <tr>
+                <td class="curve-id-column"></td>
+                <th class="curve-id-column">Curve ID</th>
+                <th class="color-column">Color</th>
+                <th class="label-column">Label</th>
+                <th class="data-column">Input Data Here</th>
+                <th class="mean-column">Mean</th>
+                <th class="std-column">STD</th>
+            </tr>
+            <tr>
+                <td class="curve-id-column"></td>
+                <td class="curve-id-column">0</td>
+                <td><input type="color" class="color-picker"></td>
+                <td><input type="text" class="label"></td>
+                <td><textarea class="copyPasteData" rows="2" cols="50"></textarea></td>
+                <td>N/A</td>
+                <td>N/A</td>
+            </tr>
+        </table>
+        <button onclick="addRow()" id="addRow">Add Row</button>
+    </div>
+    
+    <canvas id="myChart"></canvas>
+    
+</div>

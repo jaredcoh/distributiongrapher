@@ -1,0 +1,116 @@
+.tabs {
+    margin-bottom: 5px;
+}
+
+.tab {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+}
+
+.tab.active {
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+}
+
+.tab-content.active {
+    display: block;
+    height:96vh;
+}
+
+
+input {
+    width: calc(100% - 8px); /* Subtracting 8px to account for border width */
+}
+.graphMetadata {
+    margin-bottom: 20px;
+    width:100%;
+}
+.graphMetadata input {
+    width: 100px; /* Adjust width as needed */
+    margin-bottom: 10px;
+}
+.title{
+    align-items: center;
+}
+.title label {
+    margin-right: 10px; /* Adjust as needed */
+}
+.xRange, .yRange {
+    margin-bottom: 2px;
+}
+.xRange label, .yRange label {
+    margin-right: 5px;
+}
+.color-picker{
+    width: 100%;
+}
+
+#tabContent{
+    height: 80vh;
+    border: 3px solid #000;
+}
+#iframe {
+    width: 100%;
+    height: 100vh; /* Adjust height as needed */
+    border: 3px solid #000;
+}
+
+#dataPointInputFields, #meanNstdInputFields, #copyPasteInputFields {
+    border: 1px solid #ccc; /* Light gray border */
+}
+
+#dataPointInputFields th, #dataPointInputFields td,#meanNstdInputFields th, #meanNstdInputFields td, #copyPasteInputFields th, #copyPasteInputFields td {
+    border: 1px solid #ccc; /* Light gray border for table cells */
+}
+
+.curveId {
+    text-align: center;
+}
+.addColumn{
+    width: 20px;
+}
+#dataPointInputFields th,
+#dataPointInputFields td:not(.addColumn, .side-column)
+{
+    width: 70px;
+}
+
+
+#addRow{
+    margin-top: 10px;
+}
+#label{
+    width:50px;
+}
+#data{
+    width:50px;
+}
+.curve-id-column{
+    text-align: center;
+    width: 30px;
+}
+#copyPasteData{
+    height:20px;
+    width:50px;
+}
+.removeRowCell{
+    text-align: center;
+    height:30px;
+}
+
+.removeColumn{
+    height: 25px;
+}
