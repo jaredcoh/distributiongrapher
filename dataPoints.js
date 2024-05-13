@@ -163,7 +163,7 @@ function updateMean(columnIndex) {
         }
     }
 
-    table.rows[table.rows.length - 2].cells[columnIndex].textContent = (sum / count).toFixed(3);
+    table.rows[table.rows.length - 1].cells[columnIndex].textContent = (sum / count).toFixed(3);
 }
 
 function updateStd(columnIndex) {
@@ -178,7 +178,7 @@ function updateStd(columnIndex) {
             sumSquaredDiff += Math.pow(parseFloat(inputData) - parseFloat(table.rows[table.rows.length - 2].cells[columnIndex].textContent), 2);
         }
     }
-    table.rows[table.rows.length - 1].cells[columnIndex].textContent = Math.sqrt(sumSquaredDiff / count).toFixed(3); // Update the cell for standard deviation
+    table.rows[table.rows.length ].cells[columnIndex].textContent = Math.sqrt(sumSquaredDiff / count).toFixed(3); // Update the cell for standard deviation
 }
 
 // Event listener function for input fields in a specific column
