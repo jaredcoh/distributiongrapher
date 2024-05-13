@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Add click event listeners to each tab element
     meanStdTab.addEventListener('click', function() {
         // Load content from meanStdTab.html
-        tabContent.innerHTML = '<iframe src="meanNStdTab.html" frameborder="0" width="100%" height="100%"></iframe>';
+        tabContent.innerHTML = '<iframe src="meanNstdTab.html" frameborder="0" width="100%" height="100%"></iframe>';
         // Remove 'active' class from all tabs
         meanStdTab.classList.add('active');
         dataPointsTab.classList.remove('active');
