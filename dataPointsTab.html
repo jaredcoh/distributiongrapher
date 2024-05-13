@@ -1,0 +1,65 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="dataPoints.js"></script>
+
+<div id="dataPointsTab" class="tab-content active"> <!-- Added ID "dataPointsTab" -->
+    <div class="graphMetadata">
+        <div class="title">
+            <label for="title">Title:</label> 
+            <input type="text" id="title">
+        </div>
+        <div class="xRange">
+            <label>X Range:</label>
+            (<input type="number" id="xmin" placeholder="Xmin">
+            <span>,</span>
+            <input type="number" id="xmax" placeholder="Xmax">)
+        </div>
+        <div class="yRange">
+            <label for="adjustYAxis">Set Y range from 0 to 1:</label>
+            <input type="checkbox" id="adjustYAxis">
+        </div>
+        <div><button onclick="plotDistributions()">Plot Curve(s)</button></div>
+        
+    </div>
+    <div class="inputFieldsContainer">
+        <table id="dataPointInputFields">
+            <tbody>
+                <tr>
+                    <td class="side-tab"><b>Curve ID</b></td>
+                    <td class="curveId">0</td>
+                    <td class="addColumn"><button onclick="addColumn()">+</button></td>
+                </tr>
+                <tr>
+                    <td class="side-tab"><b>Color</b></td>
+                    <td><input type="color" class="color-picker"></td>
+                </tr>
+                <tr>
+                    <td class="side-tab"><b>Label</b></td>
+                    <td><input type="text" class="label"></td>
+                </tr>
+                <tr>
+                    <td class="side-tab"><b>Data Points</b></td>
+                    <td><input type="number" class="data"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button onclick="addRow()">+</button></td>
+                </tr>
+                <tr>
+                    <td><b>Mean</b></td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td><b>STDev</b></td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td class='removeColumn'></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    <canvas id="myChart"></canvas>
+</div>
+
+
