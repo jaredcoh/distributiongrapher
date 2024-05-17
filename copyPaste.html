@@ -17,7 +17,7 @@
             <label for="adjustYAxis">Set Y range from 0 to 1:</label>
             <input type="checkbox" id="adjustYAxis">
         </div>
-        <div><button onclick="plotDistributions()">Plot Curve(s)</button></div>
+        <div><button class= "plotCurvesButton" onclick="plotDistributions()" title="Plot Distributions">Plot Curve(s)</button></div>
     </div>
     <div class="inputFieldsContainer">
         <table id="copyPasteInputFields">
@@ -40,7 +40,7 @@
                 <td>N/A</td>
             </tr>
             <tr>
-                <td class="curve-id-column addColumn"><button class="addButton" onclick="addRow()" id="addRow">+</button></td>
+                <td class="curve-id-column addColumn"><button  title="Add Row" class="addButton" onclick="addRow()" id="addRow">+</button></td>
                 
             </tr>
         </table>

@@ -17,7 +17,7 @@
             <label for="adjustYAxis">Set Y range from 0 to 1:</label>
             <input type="checkbox" id="adjustYAxis">
         </div>
-        <div><button onclick="plotDistributions()">Plot Curve(s)</button></div>
+        <div><button onclick="plotDistributions()"  class= "plotCurvesButton" title="Plot Distributions" >Plot Curve(s)</button></div>
     </div>
     <div class="inputFieldsContainer">
         <table id="meanNstdInputFields">
@@ -38,7 +38,7 @@
                 <td><input type="number" class="std"></td>
                 
             </tr>
-                <td class="addColumn"><button class="addButton" onclick="addRow()" id="addRow">+</button></td>
+                <td class="addColumn"><button class="addButton" onclick="addRow()" title="Add Row" id="addRow">+</button></td>
             <tr>
                 
             </tr>

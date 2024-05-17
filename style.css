@@ -63,7 +63,25 @@ body {
     border-radius: 30px;
 }
 
+.plotCurvesButton {
+    font-weight: bold;
+    font-size: 16px; /* Adjust size as needed */
+    border-radius: 10px; /* Adjust border radius for curved edges */
+    background-color: black;
+    color: white;
+    padding: 10px 20px; /* Adjust padding for button size */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+}
 
+.plotCurvesButton:hover {
+    background-color: darkred;
+}
+
+.plotCurvesButton:active {
+    background-color: #7b0000; /* Adjust to the desired shade */
+}
 input {
     width: calc(100% - 8px); /* Subtracting 8px to account for border width */
 }
@@ -147,6 +165,20 @@ input {
     font-size:large;
     text-decoration: none;
     background-color: #000;
+    transition: background-color 0.3s ease, border-width 0.3s ease, border-color 0.3s ease;
+}
+
+.addButton:hover, .removeColumnButton:hover {
+    border-color: black;
+    border-width: 3px;
+    background-color:black
+
+}
+.addButton:active, .removeColumnButton:active {
+    border-color: rgb(110, 0, 0);
+    border-width: 3px;
+    background-color:rgb(110, 0, 0);
+    
 }
 .addColumn{
     width: 20px;
