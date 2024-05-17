@@ -37,7 +37,8 @@ function addRow() {
         color_val = `${'#' + Math.floor(Math.random()*16777215).toString(16)}` 
     }
     curveId++;
-    document.getElementById('meanNstdInputFields').insertRow(-1).innerHTML = `
+    table = document.getElementById('meanNstdInputFields') 
+    table.insertRow(table.rows.length - 2).innerHTML = `
         <td class="addColumn"><button title="Remove Row" class="removeColumnButton" style="background-color: ${color_val}">x</button></td>
         <td class="curve-id-column">${curveId}</td>
         <td><input type="color" class="color-picker" value="${color_val}" onchange="updateButtonColor(this)"></td>
