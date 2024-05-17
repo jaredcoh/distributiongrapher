@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const dataPointsTab = document.getElementById('dataPointsTab');
     const copyPasteTab = document.getElementById('copyPasteTab');
 
+    if (meanStdTab && meanStdTab.classList.contains('active')) {
+        tabContent.innerHTML = '<iframe src="meanNstdTab.html" frameborder="0" width="100%" height="100%"></iframe>';
+    }
+
     // Add click event listeners to each tab element
     meanStdTab.addEventListener('click', function() {
         // Load content from meanStdTab.html

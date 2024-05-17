@@ -1,4 +1,12 @@
 let curveId = 0; // Track the current curve ID
+function updateButtonColor(colorPicker) {
+    const column = colorPicker.closest('td').cellIndex; // Get the column index of the color picker
+    const table = colorPicker.closest('table'); // Get the table containing the color picker
+    const buttons = table.querySelectorAll(`tr td:nth-child(${column + 1}) .addButton, tr td:nth-child(${column + 1}) .removeColumnButton`); // Select all buttons in the same column
+    buttons.forEach(button => {
+        button.style.backgroundColor = colorPicker.value;
+    });
+}
 
 function addRemoveListener() {
     document.querySelectorAll('.removeColumnButton').forEach(button => button.addEventListener('click', function() {
@@ -11,7 +19,7 @@ function addRow() {
     let html = '';
 
     for (let i = 0; i < inputTable.rows[0].cells.length - 1; i++) {
-        html += (i == 0) ? '<td></td>' : '<td><input type="text"></td>';
+        html += (i == 0) ? '<td class="side-tab header"></td>' : '<td><input type="text"></td>';
     }
     inputTable.insertRow(inputTable.rows.length - 4).innerHTML = html;
     setupEventListeners();
@@ -23,32 +31,44 @@ function addColumn(){
     const newCell = newRow.insertCell(newRow.cells.length - 1);
     newCell.textContent =++curveId;
     newCell.classList.add('curveId');
+    let color_val = `${'#' + Math.floor(Math.random()*16777215).toString(16)}`
+    
+    while (color_val == '#000000' || color_val.length != 7) {
+        console.log(color_val)
+        console.log("Attempting new color");
+        color_val = `${'#' + Math.floor(Math.random()*16777215).toString(16)}` 
+    }
     for (let i = 1; i < numRows; i++) {
         const newRow = inputTable.rows[i];
+        let newCellinRow = newRow.insertCell(newRow.cells.length)
         switch (i) {
             case 1:
-                cellContent = `<input type="color" class="color-picker" value="${'#' + Math.floor(Math.random()*16777215).toString(16)}">`;
+                cellContent = `<input type="color" class="color-picker" value="${color_val}"   onchange="updateButtonColor(this)">`;
                 break;
             case 2:
                 cellContent = '<input type="text">'; // Third row: Text input
                 break;
             case numRows-1:
-                cellContent = `<td><button class='removeColumnButton'>X</button></td>`
+                newCellinRow.classList.add('removeColumn');
+                cellContent = `<button style="background-color: ${color_val}" class="removeColumnButton" title="Remove Column">x</button>`
                 break;
             case numRows-2:
-                cellContent = `<td class='mean'>N/A</td>`
+                newCellinRow.classList.add('mean');
+                cellContent = `N/A`
                 break;
             case numRows-3:
-                cellContent = `<td class='std'>N/A</td>`
+                newCellinRow.classList.add('std');
+                cellContent = `N/A`
                 break;
             case numRows-4:
-                cellContent = '<td><button onclick="addRow()">+</button></td>'
+                newCellinRow.classList.add('addColumn');
+                cellContent = `<button style="background-color: ${color_val}" class="addButton" onclick="addRow()">+</button>`
                 break;
             default:
-                cellContent = '<input type="number">'; // Other rows: Number input
+                cellContent = `<input type="number">`; // Other rows: Number input
                 break;
         }
-        newRow.insertCell(newRow.cells.length).innerHTML = cellContent;
+        newCellinRow.innerHTML = cellContent;
     }
     setupEventListeners();
 }
@@ -163,7 +183,7 @@ function updateMean(columnIndex) {
         }
     }
 
-    table.rows[table.rows.length - 1].cells[columnIndex].textContent = (sum / count).toFixed(3);
+    table.rows[table.rows.length - 3].cells[columnIndex].textContent = (sum / count).toFixed(3);
 }
 
 function updateStd(columnIndex) {
@@ -175,10 +195,10 @@ function updateStd(columnIndex) {
         const inputData = table.rows[i].cells[columnIndex].querySelector('input').value.trim();
         if (inputData !== "") {
             count++;
-            sumSquaredDiff += Math.pow(parseFloat(inputData) - parseFloat(table.rows[table.rows.length - 2].cells[columnIndex].textContent), 2);
+            sumSquaredDiff += Math.pow(parseFloat(inputData) - parseFloat(table.rows[table.rows.length - 3].cells[columnIndex].textContent), 2);
         }
     }
-    table.rows[table.rows.length ].cells[columnIndex].textContent = Math.sqrt(sumSquaredDiff / count).toFixed(3); // Update the cell for standard deviation
+    table.rows[table.rows.length-2 ].cells[columnIndex].textContent = Math.sqrt(sumSquaredDiff / count).toFixed(3); // Update the cell for standard deviation
 }
 
 // Event listener function for input fields in a specific column

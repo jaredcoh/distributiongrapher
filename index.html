@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Normal Distribution Plotter</title>
+    <title class="title">Normal Distribution Plotter</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="meanNstd.js"></script>
     <script src="openTab.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
-    <h1>Normal Distribution Plotter</h1>
+    <header>
+        <h1>Normal Distribution Plotter</h1>
+        <h4 style="font-weight:normal">Use this website to plot normal distributions with either your statistics or data
+        points!</h4>
+    </header>
+    
+    <hr>
     <div class="tabs">
-        <div class="tab" id="meanStdTab">Mean and STD</div>
+        <div class="tab active" id="meanStdTab">Mean and STDev</div>
         <div class="tab" id="dataPointsTab">Data Points (Manual)</div>
         <div class="tab" id="copyPasteTab">Data Points (Copy/Paste)</div>
     </div>
     <div id="tabContent"></div>
 </body>
+
 </html>

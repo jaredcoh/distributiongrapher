@@ -22,16 +22,16 @@
     <div class="inputFieldsContainer">
         <table id="copyPasteInputFields">
             <tr>
-                <td class="curve-id-column"></td>
-                <th class="curve-id-column">Curve ID</th>
-                <th class="color-column">Color</th>
-                <th class="label-column">Label</th>
-                <th class="data-column">Input Data Here</th>
-                <th class="mean-column">Mean</th>
-                <th class="std-column">STD</th>
+                <td class="curve-id-column addColumn header"></td>
+                <th class="curve-id-column header">Curve ID</th>
+                <th class="color-column header">Color</th>
+                <th class="label-column header">Label</th>
+                <th class="data-column header">Input Data Here</th>
+                <th class="mean-column header">Mean</th>
+                <th class="std-column header">STDev</th>
             </tr>
             <tr>
-                <td class="curve-id-column"></td>
+                <td class="curve-id-column addColumn"></td>
                 <td class="curve-id-column">0</td>
                 <td><input type="color" class="color-picker"></td>
                 <td><input type="text" class="label"></td>
@@ -39,8 +39,12 @@
                 <td>N/A</td>
                 <td>N/A</td>
             </tr>
+            <tr>
+                <td class="curve-id-column addColumn"><button class="addButton" onclick="addRow()" id="addRow">+</button></td>
+                
+            </tr>
         </table>
-        <button onclick="addRow()" id="addRow">Add Row</button>
+        
     </div>
     
     <canvas id="myChart"></canvas>

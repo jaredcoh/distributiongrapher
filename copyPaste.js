@@ -17,7 +17,7 @@ function addRemoveListener(){
 }
 function addChangeListener(){
     const table = document.getElementById("copyPasteInputFields");
-    const numRows = table.rows.length - 1;
+    const numRows = table.rows.length - 2;
     for (let i = 1; i < numRows+1; i++) {
         const inputField = table.rows[i].cells[table.rows[i].cells.length - 3].querySelector('textarea');
         inputField.addEventListener('change', function() {
@@ -36,7 +36,14 @@ function updateStd(stdDev, rowNum) {
     const row = document.getElementById("copyPasteInputFields").rows[rowNum];
     row.cells[row.cells.length - 1].textContent = stdDev.toFixed(2); // Update std cell with std deviation value
 }
-
+function updateButtonColor(colorPicker) {
+    const button = colorPicker.parentElement.parentElement.querySelector('.addButton');
+    if (button) {
+        button.style.backgroundColor = colorPicker.value;
+    } else {
+        console.error('Button not found');
+    }
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     // Select all remove row buttons
@@ -46,11 +53,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function addRow() {
+    let color_val = `${'#' + Math.floor(Math.random()*16777215).toString(16)}`
+    
+    while (color_val == '#000000' || color_val.length != 7) {
+        console.log(color_val)
+        console.log("Attempting new color");
+        color_val = `${'#' + Math.floor(Math.random()*16777215).toString(16)}` 
+    }
     curveId++;
-    document.getElementById('copyPasteInputFields').insertRow(-1).innerHTML = `
-        <td><button class="removeRow">X</button></td>
+    table = document.getElementById('copyPasteInputFields')
+    table.insertRow(table.rows.length - 1).innerHTML = `
+        <td class="curve-id-column addColumn"><button style="background-color: ${color_val}" title="Remove Row" class="removeRow addButton">x</button></td>
         <td class="curve-id-column">${curveId}</td>
-        <td><input type="color" class="color-picker" value="${'#' + Math.floor(Math.random()*16777215).toString(16)}"></td>
+        <td><input type="color" class="color-picker" value="${color_val}"  onchange="updateButtonColor(this)"></td>
         <td><input type="text" class="label"></td>
         <td><textarea class="copyPasteData" rows="2" cols="50"></textarea></td>
         <td>N/A</td>

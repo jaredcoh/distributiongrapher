@@ -25,37 +25,37 @@
         <table id="dataPointInputFields">
             <tbody>
                 <tr>
-                    <td class="side-tab"><b>Curve ID</b></td>
+                    <td class="side-tab header"><b>Curve ID</b></td>
                     <td class="curveId">0</td>
-                    <td class="addColumn"><button onclick="addColumn()">+</button></td>
+                    <td class="addColumn"><button class="addButton" onclick="addColumn()" title="Add Column">+</button></td>
                 </tr>
                 <tr>
-                    <td class="side-tab"><b>Color</b></td>
+                    <td class="side-tab header"><b>Color</b></td>
                     <td><input type="color" class="color-picker"></td>
                 </tr>
                 <tr>
-                    <td class="side-tab"><b>Label</b></td>
+                    <td class="side-tab header"><b>Label</b></td>
                     <td><input type="text" class="label"></td>
                 </tr>
                 <tr>
-                    <td class="side-tab"><b>Data Points</b></td>
+                    <td class="side-tab header"><b>Data Points</b></td>
                     <td><input type="number" class="data"></td>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td><button onclick="addRow()">+</button></td>
+                <tr >
+                    <td class="addColumn"></td>
+                    <td class="addColumn"><button class="addButton" onclick="addRow()" title="Add Row">+</button></td>
                 </tr>
                 <tr>
-                    <td><b>Mean</b></td>
+                    <td class="side-tab header"><b>Mean</b></td>
                     <td>N/A</td>
                 </tr>
                 <tr>
-                    <td><b>STDev</b></td>
+                    <td class="side-tab header"><b>STDev</b></td>
                     <td>N/A</td>
                 </tr>
                 <tr>
-                    <td class='removeColumn'></td>
-                    <td></td>
+                    <td class='removeColumn header addColumn'></td>
+                    <td class='removeColumn addColumn'></td>
                 </tr>
             </tbody>
         </table>

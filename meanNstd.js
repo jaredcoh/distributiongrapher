@@ -3,6 +3,14 @@ let stds = [];
 let labels = [];
 let curveId = 0; // Track the current curve ID
 
+function updateButtonColor(colorPicker) {
+    const button = colorPicker.parentElement.parentElement.querySelector('.removeColumnButton');
+    if (button) {
+        button.style.backgroundColor = colorPicker.value;
+    } else {
+        console.error('Button not found');
+    }
+}
 function addRemoveListener(){
   
     // Attach click event listener to each button
@@ -21,11 +29,18 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 function addRow() {
+    let color_val = `${'#' + Math.floor(Math.random()*16777215).toString(16)}`
+    
+    while (color_val == '#000000' || color_val.length != 7) {
+        console.log(color_val)
+        console.log("Attempting new color");
+        color_val = `${'#' + Math.floor(Math.random()*16777215).toString(16)}` 
+    }
     curveId++;
     document.getElementById('meanNstdInputFields').insertRow(-1).innerHTML = `
-        <td class="removeRowCell"><button>X</button></td>
+        <td class="addColumn"><button title="Remove Row" class="removeColumnButton" style="background-color: ${color_val}">x</button></td>
         <td class="curve-id-column">${curveId}</td>
-        <td><input type="color" class="color-picker" value="${'#' + Math.floor(Math.random()*16777215).toString(16)}"></td>
+        <td><input type="color" class="color-picker" value="${color_val}" onchange="updateButtonColor(this)"></td>
         <td><input type="text" class="label"></td>
         <td><input type="number" class="mean"></td>
         <td><input type="number" class="std"></td>

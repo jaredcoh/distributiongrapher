@@ -1,33 +1,66 @@
+html, body{
+    margin:0;
+    padding:0;
+}
+
+* {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+header {
+    background-color: #333; /* Dark grey background */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding for spacing (top and bottom 10px, left and right 20px) */
+    line-height: .5; /* Adjust line height for smaller spacing between lines */
+    width: 100%;
+    min-width: 0;
+}
+
+body {
+    background-color: #f7f7f7;
+}
+
 .tabs {
     margin-bottom: 5px;
+    padding-left: 50px;
 }
 
 .tab {
     display: inline-block;
     padding: 10px 20px;
     cursor: pointer;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-bottom: none;
+    background-color: #f7f7f7;
+    border: none; /* Remove all borders */
+    border-bottom: 4px solid rgb(169, 0, 0); /* Add a thick red bottom border */
     border-radius: 5px 5px 0 0;
+    font-weight: bold;
 }
-
 .tab.active {
-    background-color: #fff;
-    border-bottom: 1px solid #fff;
+    background-color: #f1f1f1;
+    border: 1px solid rgb(223, 1, 1);
+    border-bottom: 4px solid rgb(223, 1, 1);
+    
 }
 
 .tab-content {
     display: none;
     padding: 20px;
-    border: 1px solid #ccc;
+    padding-bottom:0px;
+    
+    border-color: #000;
+    border-width: 1px;
     border-top: none;
     border-radius: 0 0 5px 5px;
+    background: #fff9f9;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
 }
 
 .tab-content.active {
     display: block;
     height:96vh;
+    border: #ccc solid 1px;
+    border-radius: 30px;
 }
 
 
@@ -38,12 +71,16 @@ input {
     margin-bottom: 20px;
     width:100%;
 }
+#title{
+    width:200px;
+}
 .graphMetadata input {
     width: 100px; /* Adjust width as needed */
     margin-bottom: 10px;
 }
 .title{
     align-items: center;
+    width: 500px;
 }
 .title label {
     margin-right: 10px; /* Adjust as needed */
@@ -56,38 +93,67 @@ input {
 }
 .color-picker{
     width: 100%;
+    background-color: #f0f0f0;
 }
 
 #tabContent{
     height: 80vh;
-    border: 3px solid #000;
 }
 #iframe {
     width: 100%;
-    height: 100vh; /* Adjust height as needed */
-    border: 3px solid #000;
 }
 
 #dataPointInputFields, #meanNstdInputFields, #copyPasteInputFields {
-    border: 1px solid #ccc; /* Light gray border */
+    border: 1px solid #aaa; /* Light gray border */
+    border-radius: 10px;
+    padding:10px;
+    background: #ffffff;
 }
 
+
 #dataPointInputFields th, #dataPointInputFields td,#meanNstdInputFields th, #meanNstdInputFields td, #copyPasteInputFields th, #copyPasteInputFields td {
-    border: 1px solid #ccc; /* Light gray border for table cells */
+    border: 1px solid #aaa; /* Light gray border for table cells */
+    padding:5px;
+    background: #f3f3f3;
+}
+
+.header {
+    background: #c7c7c7 !important;
 }
 
 .curveId {
     text-align: center;
 }
-.addColumn{
-    width: 20px;
-}
+
+
+
 #dataPointInputFields th,
 #dataPointInputFields td:not(.addColumn, .side-column)
 {
     width: 70px;
 }
-
+.addButton, .removeColumnButton {
+    display: inline-flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    width: 20px;
+    height: 20px;
+    line-height: 15px;
+    text-align: left;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size:large;
+    text-decoration: none;
+    background-color: #000;
+}
+.addColumn{
+    width: 20px;
+    background:none !important;
+    border: none !important;
+    text-align: center;
+}
 
 #addRow{
     margin-top: 10px;
@@ -102,6 +168,7 @@ input {
     text-align: center;
     width: 30px;
 }
+
 #copyPasteData{
     height:20px;
     width:50px;
@@ -109,8 +176,14 @@ input {
 .removeRowCell{
     text-align: center;
     height:30px;
+    width: 30px;
 }
 
 .removeColumn{
-    height: 25px;
+    height: 35px;
+    width: 20px;
+    background:none !important;
+    border: none !important;
+    text-align: center;
 }
+
