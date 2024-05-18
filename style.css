@@ -54,11 +54,13 @@ body {
     margin-left: 20px;
     margin-bottom: 20px;
     margin-right: 20px;
+    height: auto;
+    transition: height 0.3s ease; /* Smooth transition for height changes */
 }
 
 .tab-content.active {
     display: block;
-    height:96vh;
+    height:100%;
     border: #ccc solid 1px;
     border-radius: 30px;
 }
@@ -124,7 +126,10 @@ input {
 #dataPointInputFields, #meanNstdInputFields, #copyPasteInputFields {
     border: 1px solid #aaa; /* Light gray border */
     border-radius: 10px;
-    padding:10px;
+    padding-top: 20px; 
+    padding-bottom :20px;
+    padding-right: 30px;
+    padding-left: 20px;
     background: #ffffff;
 }
 
@@ -133,6 +138,7 @@ input {
     border: 1px solid #aaa; /* Light gray border for table cells */
     padding:5px;
     background: #f3f3f3;
+    text-align: center;
 }
 
 .header {
@@ -217,5 +223,13 @@ input {
     background:none !important;
     border: none !important;
     text-align: center;
+}
+
+#myChart{
+    height: 200px;
+    background-color: none;
+    padding:20px;
+    margin-top: 30px;
+    border-radius: 20px;
 }
 

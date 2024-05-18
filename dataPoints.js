@@ -1,4 +1,3 @@
-let curveId = 0; // Track the current curve ID
 function updateButtonColor(colorPicker) {
     const column = colorPicker.closest('td').cellIndex; // Get the column index of the color picker
     const table = colorPicker.closest('table'); // Get the table containing the color picker
@@ -29,7 +28,7 @@ function addColumn(){
     const numRows = inputTable.rows.length;
     const newRow = inputTable.rows[0];
     const newCell = newRow.insertCell(newRow.cells.length - 1);
-    newCell.textContent =++curveId;
+    newCell.textContent =newRow.cells.length-3;
     newCell.classList.add('curveId');
     let color_val = `${'#' + Math.floor(Math.random()*16777215).toString(16)}`
     
@@ -127,8 +126,9 @@ function plotDistributions() {
     if (window.myChart instanceof Chart) {
         window.myChart.destroy();
     }
-
-    window.myChart = new Chart(document.getElementById('myChart').getContext('2d'), {
+    const canvas = document.getElementById('myChart');
+    canvas.style.backgroundColor = 'white';
+    window.myChart = new Chart(canvas.getContext('2d'), {
         type: 'scatter',
         data: {
             datasets: datasets.map(dataset => ({
@@ -161,6 +161,8 @@ function plotDistributions() {
             }
         }
     });
+    const tabContent = document.querySelector('.tab-content.active');
+    tabContent.style.height = tabContent.scrollHeight + 'px';
 }
 
 function gaussian(x, mean, std) {

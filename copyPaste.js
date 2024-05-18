@@ -60,11 +60,10 @@ function addRow() {
         console.log("Attempting new color");
         color_val = `${'#' + Math.floor(Math.random()*16777215).toString(16)}` 
     }
-    curveId++;
     table = document.getElementById('copyPasteInputFields')
     table.insertRow(table.rows.length - 1).innerHTML = `
         <td class="curve-id-column addColumn"><button style="background-color: ${color_val}" title="Remove Row" class="removeRow addButton">x</button></td>
-        <td class="curve-id-column">${curveId}</td>
+        <td class="curve-id-column">${table.rows.length - 3}</td>
         <td><input type="color" class="color-picker" value="${color_val}"  onchange="updateButtonColor(this)"></td>
         <td><input type="text" class="label"></td>
         <td><textarea class="copyPasteData" rows="2" cols="50"></textarea></td>
@@ -134,8 +133,9 @@ function plotDistributions() {
     if (window.myChart instanceof Chart) {
         window.myChart.destroy();
     }
-
-    window.myChart = new Chart(document.getElementById('myChart').getContext('2d'), {
+    const canvas = document.getElementById('myChart');
+    canvas.style.backgroundColor = 'white';
+    window.myChart = new Chart(canvas.getContext('2d'), {
         type: 'scatter',
         data: {
             datasets: datasets.map(dataset => ({
@@ -168,6 +168,8 @@ function plotDistributions() {
             }
         }
     });
+    const tabContent = document.querySelector('.tab-content.active');
+    tabContent.style.height = tabContent.scrollHeight + 'px';
 }
 
 function gaussian(x, mean, std) {

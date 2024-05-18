@@ -12,12 +12,13 @@ function updateButtonColor(colorPicker) {
     }
 }
 function addRemoveListener(){
-  
+    
     // Attach click event listener to each button
-    document.querySelectorAll('.removeRowCell').forEach(function(button) {
+    document.querySelectorAll('.removeColumnButton').forEach(function(button) {
       button.addEventListener('click', function() {
         // Get the parent row and remove it
-        var row = this.parentNode;
+        console.log("AAA")
+        var row = this.parentNode.parentNode;
         row.parentNode.removeChild(row);
       });
     });
@@ -26,11 +27,12 @@ function addRemoveListener(){
 document.addEventListener('DOMContentLoaded', function() {
     // Select all remove row buttons
     addRemoveListener();
+    console.log("AAAB")
   });
 
 function addRow() {
     let color_val = `${'#' + Math.floor(Math.random()*16777215).toString(16)}`
-    
+    console.log("AAAC")
     while (color_val == '#000000' || color_val.length != 7) {
         console.log(color_val)
         console.log("Attempting new color");
@@ -40,13 +42,14 @@ function addRow() {
     table = document.getElementById('meanNstdInputFields') 
     table.insertRow(table.rows.length - 2).innerHTML = `
         <td class="addColumn"><button title="Remove Row" class="removeColumnButton" style="background-color: ${color_val}">x</button></td>
-        <td class="curve-id-column">${curveId}</td>
+        <td class="curve-id-column">${table.rows.length-4}</td>
         <td><input type="color" class="color-picker" value="${color_val}" onchange="updateButtonColor(this)"></td>
         <td><input type="text" class="label"></td>
         <td><input type="number" class="mean"></td>
         <td><input type="number" class="std"></td>
     `;
     addRemoveListener();
+    console.log("AAAD")
 }
 
 
@@ -94,7 +97,9 @@ function plotDistributions() {
         window.myChart.destroy();
     }
 
-    window.myChart = new Chart(document.getElementById('myChart').getContext('2d'), {
+    const canvas = document.getElementById('myChart');
+    canvas.style.backgroundColor = 'white';
+    window.myChart = new Chart(canvas.getContext('2d'), {
         type: 'scatter',
         data: {
             datasets: datasets.map(dataset => ({
@@ -127,6 +132,8 @@ function plotDistributions() {
             }
         }
     });
+    const tabContent = document.querySelector('.tab-content.active');
+    tabContent.style.height = tabContent.scrollHeight + 'px';
 }
 
 function gaussian(x, mean, std) {
