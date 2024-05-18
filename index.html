@@ -4,29 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title class="title">Normal Distribution Plotter</title>
+    <title class="title">Multiple Normal Distribution Calculator | Plot Normal Distributions</title>
+    <meta name="description" content="Use the Online, Free Multiple Normal Distributions Grapher/Calculator to plot normal distributions with mean and standard deviation or your own data points. Perfect for statistical analysis and visualization.">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="meanNstd.js"></script>
     <script src="openTab.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1591793840351191"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1591793840351191" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <header>
-        <h1>Normal Distribution Plotter</h1>
-        <h4 style="font-weight:normal">Use this website to plot normal distributions with either your statistics or data
-        points!</h4>
+        <h1>Multiple Normal Distribution Calculator</h1>
+        <h4 style="font-weight:normal">Use this tool to plot multiple normal distributions with your statistics or data points for accurate analysis and visualization!</h4>
     </header>
     
     <hr>
     <div class="tabs">
-        <div class="tab active" id="meanStdTab">Mean and STDev</div>
-        <div class="tab" id="dataPointsTab">Data Points (Manual)</div>
+        <div class="tab active" id="meanStdTab">Mean and Standard Deviation</div>
+        <div class="tab" id="dataPointsTab">Data Points (Manual Entry)</div>
         <div class="tab" id="copyPasteTab">Data Points (Copy/Paste)</div>
     </div>
-    <div id="tabContent"></div>
+    <div id="tabContent">
+        <section id="meanStdContent">
+            <h2>Mean and Standard Deviation</h2>
+            <p>Enter the mean and standard deviation to plot your normal distribution.</p>
+        </section>
+        <section id="dataPointsContent">
+            <h2>Data Points (Manual Entry)</h2>
+            <p>Manually enter your data points to create a normal distribution plot.</p>
+        </section>
+        <section id="copyPasteContent">
+            <h2>Data Points (Copy/Paste)</h2>
+            <p>Copy and paste your data points to quickly generate a normal distribution plot.</p>
+        </section>
+    </div>
 </body>
 
 </html>
