@@ -42,14 +42,14 @@ function addColumn(){
         let newCellinRow = newRow.insertCell(newRow.cells.length)
         switch (i) {
             case 1:
-                cellContent = `<input type="color" class="color-picker" value="${color_val}"   onchange="updateButtonColor(this)">`;
+                cellContent = `<input type="color" title="Change Color" class="color-picker" value="${color_val}"   onchange="updateButtonColor(this)">`;
                 break;
             case 2:
                 cellContent = '<input type="text">'; // Third row: Text input
                 break;
             case numRows-1:
                 newCellinRow.classList.add('removeColumn');
-                cellContent = `<button style="background-color: ${color_val}" class="removeColumnButton" title="Remove Column">x</button>`
+                cellContent = `<button style="background-color: ${color_val}" class="removeColumnButton" title="Remove Curve">x</button>`
                 break;
             case numRows-2:
                 newCellinRow.classList.add('mean');
@@ -61,7 +61,7 @@ function addColumn(){
                 break;
             case numRows-4:
                 newCellinRow.classList.add('addColumn');
-                cellContent = `<button style="background-color: ${color_val}" class="addButton" onclick="addRow()">+</button>`
+                cellContent = `<button title="Add Data Point" style="background-color: ${color_val}" class="addButton" onclick="addRow()">+</button>`
                 break;
             default:
                 cellContent = `<input type="number">`; // Other rows: Number input

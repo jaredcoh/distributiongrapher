@@ -17,7 +17,6 @@ function addRemoveListener(){
     document.querySelectorAll('.removeColumnButton').forEach(function(button) {
       button.addEventListener('click', function() {
         // Get the parent row and remove it
-        console.log("AAA")
         var row = this.parentNode.parentNode;
         row.parentNode.removeChild(row);
       });
@@ -41,15 +40,14 @@ function addRow() {
     curveId++;
     table = document.getElementById('meanNstdInputFields') 
     table.insertRow(table.rows.length - 2).innerHTML = `
-        <td class="addColumn"><button title="Remove Row" class="removeColumnButton" style="background-color: ${color_val}">x</button></td>
+        <td class="addColumn"><button title="Remove Curve" class="removeColumnButton" style="background-color: ${color_val}">x</button></td>
         <td class="curve-id-column">${table.rows.length-4}</td>
-        <td><input type="color" class="color-picker" value="${color_val}" onchange="updateButtonColor(this)"></td>
+        <td><input type="color" title="Change Color" class="color-picker" value="${color_val}" onchange="updateButtonColor(this)"></td>
         <td><input type="text" class="label"></td>
         <td><input type="number" class="mean"></td>
         <td><input type="number" class="std"></td>
     `;
     addRemoveListener();
-    console.log("AAAD")
 }
 
 

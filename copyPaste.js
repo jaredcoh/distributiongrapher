@@ -62,9 +62,9 @@ function addRow() {
     }
     table = document.getElementById('copyPasteInputFields')
     table.insertRow(table.rows.length - 1).innerHTML = `
-        <td class="curve-id-column addColumn"><button style="background-color: ${color_val}" title="Remove Row" class="removeRow addButton">x</button></td>
+        <td class="curve-id-column addColumn"><button style="background-color: ${color_val}" title="Remove Curve" class="removeRow addButton">x</button></td>
         <td class="curve-id-column">${table.rows.length - 3}</td>
-        <td><input type="color" class="color-picker" value="${color_val}"  onchange="updateButtonColor(this)"></td>
+        <td><input type="color" title="Change Color" class="color-picker" value="${color_val}"  onchange="updateButtonColor(this)"></td>
         <td><input type="text" class="label"></td>
         <td><textarea class="copyPasteData" rows="2" cols="50"></textarea></td>
         <td>N/A</td>
