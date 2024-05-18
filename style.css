@@ -13,6 +13,7 @@ header {
     line-height: .5; /* Adjust line height for smaller spacing between lines */
     width: 100%;
     min-width: 0;
+    display: flex;
 }
 
 body {
@@ -232,4 +233,15 @@ input {
     margin-top: 30px;
     border-radius: 20px;
 }
-
+.logo {
+    width: 70px; /* Adjust as needed */
+    height: 70px;
+    filter: invert(.8); /* Invert color to white if the original is black */
+    margin-right: 20px; /* Adjust as needed */
+    margin-top: 8px;
+    border: 2px solid black !important; /* Add a 3px white border */
+    border-radius: 50%; /* Make it circular */
+}
+.header-text {
+    margin-left: 20px; /* Adjust spacing between logo and text as needed */
+}
